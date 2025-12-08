@@ -8,6 +8,7 @@ import static org.testng.Assert.assertEquals;
 public class SlowLoginTests extends BaseTests {
     @Test
 
+//    slowLogin function
     public void slowTest(){
         var slowLogin = homePage.clickSlowLogin();
         slowLogin.enterSlowUsername("Pothinn");
@@ -18,4 +19,4 @@ public class SlowLoginTests extends BaseTests {
 
     }
 }
-// asdf
+
