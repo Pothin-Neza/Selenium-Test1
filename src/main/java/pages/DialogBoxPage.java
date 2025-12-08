@@ -11,6 +11,7 @@ public class DialogBoxPage {
     public DialogBoxPage(WebDriver driver){
         this.driver = driver;
     }
+//    trigger Alert function
 
     public void triggerAlert(){
         driver.findElement(launchAlert).click();
