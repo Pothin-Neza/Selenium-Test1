@@ -9,6 +9,7 @@ public class HomePage {
         this.driver = driver;
     }
 
+//    dropdown function
     public DropdownMenu clickDropdownButton(){
         clickButton("/html/body/main/div/div[4]/div[1]/div/div/a[3]");
         return new DropdownMenu(driver);
