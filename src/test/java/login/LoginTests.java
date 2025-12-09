@@ -8,6 +8,8 @@ import static org.testng.Assert.assertEquals;
 public class LoginTests extends BaseTests {
 
     @Test
+
+//    Login test function
     public void loginTest(){
         var login = homePage.clickLoginFormButton();
         login.setUsername("Pothinn");
