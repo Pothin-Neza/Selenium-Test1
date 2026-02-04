@@ -1,0 +1,19 @@
+name: run unit tests of feature branches
+
+on:
+  push:
+    branches:
+      - selAssessment
+
+jobs:
+  run-unit-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run unit tests
+        run: mvn test
+
+  
