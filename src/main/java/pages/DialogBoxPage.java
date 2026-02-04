@@ -22,7 +22,7 @@ public class DialogBoxPage {
     }
 
     public String getAlertText() {
-        WebDriverWait wait = new WebDriverWait(driver, 5);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.alertIsPresent());
         return driver.switchTo().alert().getText();
     }
