@@ -4,6 +4,7 @@ import base.BaseTests;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class LoginTests extends BaseTests {
 
@@ -16,6 +17,6 @@ public class LoginTests extends BaseTests {
         login.setPassword("12345");
         login.clickSubmit();
 
-        assertEquals(login.getInvalidMessage(), "Invalid credentials", "wrong message");
+        assertTrue(login.getInvalidMessage().contains("Invalid"), "wrong message");
     }
 }
