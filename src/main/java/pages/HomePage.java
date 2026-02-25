@@ -1,7 +1,9 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class HomePage {
     private WebDriver driver;
@@ -10,33 +12,35 @@ public class HomePage {
     }
 
     public DropdownMenu clickDropdownButton(){
-        clickButton("/html/body/main/div/div[4]/div[1]/div/div/a[3]");
+        clickButton("Dropdown menu");
         return new DropdownMenu(driver);
     }
 
     public LoginForm clickLoginFormButton(){
-        clickButton("/html/body/main/div/div[5]/div[1]/div/div/a[1]");
+        clickButton("Login form");
         return new LoginForm(driver);
     }
     public MouseOver clickMouseOver(){
-        clickButton("/html/body/main/div/div[4]/div[1]/div/div/a[4]");
+        clickButton("Mouse over");
         return new MouseOver (driver);
     }
 
     public DialogBoxPage clickDialogBox (){
-        clickButton("/html/body/main/div/div[4]/div[2]/div/div/a[7]");
+        clickButton("Dialog boxes");
         return new DialogBoxPage(driver);
     }
     public SlowLoginPage clickSlowLogin(){
-        clickButton("/html/body/main/div/div[5]/div[1]/div/div/a[2]");
+        clickButton("Slow login");
         return new SlowLoginPage(driver);
     }
 
     public InfiniteScrollPage clickInfiniteScroll(){
-        clickButton("/html/body/main/div/div[4]/div[2]/div/div/a[2]");
+        clickButton("Infinite scroll");
         return new InfiniteScrollPage(driver);
     }
-    public void clickButton (String path){
-        driver.findElement(By.xpath(path)).click();
+    public void clickButton (String text){
+        WebElement element = driver.findElement(By.linkText(text));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        element.click();
     }
 }

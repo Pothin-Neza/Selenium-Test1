@@ -2,6 +2,10 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class LoginForm {
     private WebDriver driver;
@@ -26,6 +30,7 @@ public class LoginForm {
     }
 
     public String getInvalidMessage(){
-        return driver.findElement(invalidMessage).getText();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(7));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(invalidMessage)).getText().trim();
     }
 }
