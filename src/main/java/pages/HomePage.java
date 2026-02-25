@@ -1,7 +1,9 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class HomePage {
     private WebDriver driver;
@@ -37,6 +39,8 @@ public class HomePage {
         return new InfiniteScrollPage(driver);
     }
     public void clickButton (String text){
-        driver.findElement(By.linkText(text)).click();
+        WebElement element = driver.findElement(By.linkText(text));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        element.click();
     }
 }
